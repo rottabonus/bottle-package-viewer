@@ -5,19 +5,19 @@ import package_reader
 status = package_reader.return_packages_info()
 bottle_app = Bottle()
 
-@route('/')
+@bottle_app.route('/')
 def packagesRoute():
     return template('packages_template', status=status)
 
-@route('/packages/<name>')
+@bottle_app.route('/packages/<name>')
 def packageInfo(name):
     return template('info_template', status=status, name=name)
 
-@route('/static/<filename>')
+@bottle_app.route('/static/<filename>')
 def server_static(filename):
     return static_file(filename, root='./static/')
 
-@error(404)
+@bottle_app.error(404)
 def error404(error):
     return 'Nothing here, sorry'
 
