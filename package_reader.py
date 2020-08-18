@@ -28,9 +28,16 @@ def extract_name(packageStr):
     return match.group(0)
 
 def extract_description(packageStr):
-    match = re.search('(?<=Description: ).*', packageStr)
-    return match.group(0)
-
+    search = 'Description: '
+    split_integer = packageStr.find(search)
+    splitted_string = packageStr[(split_integer+len(search)):len(packageStr)]
+    line_array = splitted_string.split("\n")
+    descriptions = []
+    for line in line_array:
+        if re.search('(?<=[\w+]:).*', line) is None:
+            descriptions.append(line)
+    return descriptions
+    
 def extract_dependencies(packageStr):
     match = re.search('(?<=Depends: ).*', packageStr)
     dependencies = []
