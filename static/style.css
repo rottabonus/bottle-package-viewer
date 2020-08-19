@@ -1,21 +1,30 @@
 body { font-family: 'Roboto', sans-serif; 
 }
 
-.dep-div {
-    flex-direction: row;
-    display: flex;
-    width: 400px;
-    margin: 0 auto;
-    align-content: space-between;
-}
-
-.package-card {
+.package-container {
     border-radius: 25px;
+    display: flex;
     background-color: HoneyDew;
     flex-direction: column;
-    align-content: center;
     width: 600px;
     margin: 0 auto;
+}
+
+.name-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.back-icon {
+    flex: 1;
+    margin-left: 28px;
+    margin-top: 20px;
+}
+
+.package-name {
+ flex: 2
 }
 
 .description-div {
@@ -23,9 +32,12 @@ body { font-family: 'Roboto', sans-serif;
     margin-left: 10px;
 }
 
-h1 {
-    text-align: center;
-    padding-top: 10px;
+.dep-div {
+    flex-direction: row;
+    display: flex;
+    width: 400px;
+    margin: 0 auto;
+    align-content: space-between;
 }
 
 ul {
@@ -35,32 +47,23 @@ ul {
     padding-right: 10px;
 }
 
+li  {
+    margin: 4px;
+}
+
 @media only screen and (max-width: 600px) {
     .dep-div {
-        flex-direction: row;
-        display: flex;
-        width: 300px;
+        width: 350px;
         margin: 0 auto;
-        align-content: space-between;
     }
     
-    .package-card {
-        border-radius: 25px;
-        background-color: HoneyDew;
-        flex-direction: column;
-        align-content: center;
-        width: 400px;
-        margin: 0 auto;
+    .package-container {
+        width: 430px;
     }
     
     .description-div {
         padding-left: 2px;
         margin-left: 2px;
-    }
-    
-    h1 {
-        text-align: center;
-        padding-top: 3px;
     }
     
     ul {
