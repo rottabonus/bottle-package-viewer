@@ -12,7 +12,7 @@
   <div><h2>Packages:<h2></div>
     <div>
       <ul>
-        %for key in status['packages']:
+        %for key in sorted(status['packages']):
         <li><a href="packages/{{key}}"> {{key}} </a></li>
         %end
     </ul>
