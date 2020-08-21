@@ -44,7 +44,9 @@ def extract_dependencies(packageStr):
     if match is not None:
         depends_with_versions = match.group(0).split(',')
         for dep in depends_with_versions:
-            dependencies.append(dep.strip().split(' ')[0])
+            alt_deps = dep.split('|')
+            for d in alt_deps:
+                dependencies.append(d.strip().split(' ')[0])
     else:
         return []
     return set(dependencies)
