@@ -29,8 +29,8 @@ $ source venv/bin/activate
 Or if you're using Windows, in project dir create and activate environment with
 
 ```
-$ virtualenv env
-$ drive:\Users\'Username'\venv\Scripts\activate.bat
+$ virtualenv venv
+$ drive:\Users\'Username'\bottle-package-viewer\venv\Scripts\activate.bat
 ```
 
 
