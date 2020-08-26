@@ -59,4 +59,3 @@ def update_reverse_depends_dictionary(depends, current_package, dictionary):
             dictionary[depend] = [current_package]
     return dictionary
 
-print(return_packages_info())
