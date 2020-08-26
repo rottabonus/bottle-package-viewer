@@ -1,4 +1,4 @@
-from bottle import route, run, template, error, static_file, Bottle
+from bottle import route, run, template, error, static_file, Bottle, abort
 from waitress import serve
 import package_reader
 
@@ -11,7 +11,10 @@ def packagesRoute():
 
 @bottle_app.route('/packages/<name>')
 def packageInfo(name):
+    if name not in status['packages']:
+        return abort(404)
     return template('info_template', status=status, name=name)
+
 
 @bottle_app.route('/static/<filename>')
 def server_static(filename):
