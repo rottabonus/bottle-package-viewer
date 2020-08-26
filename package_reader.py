@@ -24,7 +24,7 @@ def read_file_to_string():
     return packages_str
 
 def extract_name(packageStr):
-    match = re.search('(?<=Package: ).*', packageStr)
+    match = re.search('(?<=^Package: ).*', packageStr, re.MULTILINE)
     return match.group(0)
 
 def extract_description(packageStr):
@@ -34,12 +34,12 @@ def extract_description(packageStr):
     line_array = splitted_string.split("\n")
     descriptions = []
     for line in line_array:
-        if re.search('(?<=[\w+]:).*', line) is None:
+        if re.search('(^\w+)', line) is None:
             descriptions.append(line)
     return descriptions
     
 def extract_dependencies(packageStr):
-    match = re.search('(?<=Depends: ).*', packageStr)
+    match = re.search('(?<=^Depends: ).*', packageStr, re.MULTILINE)
     dependencies = []
     if match is not None:
         depends_with_versions = match.group(0).split(',')
@@ -58,3 +58,5 @@ def update_reverse_depends_dictionary(depends, current_package, dictionary):
         else:
             dictionary[depend] = [current_package]
     return dictionary
+
+print(return_packages_info())
